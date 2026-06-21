@@ -1,0 +1,372 @@
+/* AI Recommendation Engine - App Styles */
+
+/* ==================== CURSOR LIGHT EFFECT ==================== */
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #00f0ff, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease;
+  mix-blend-mode: screen;
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(184, 41, 247, 0.08) 30%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+  filter: blur(20px);
+  mix-blend-mode: screen;
+}
+
+/* ==================== FLOATING ORBS ==================== */
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.3), transparent 70%);
+  top: -100px;
+  left: -100px;
+  animation: floatOrb1 20s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(184, 41, 247, 0.3), transparent 70%);
+  top: 50%;
+  right: -100px;
+  animation: floatOrb2 25s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 45, 149, 0.2), transparent 70%);
+  bottom: -50px;
+  left: 30%;
+  animation: floatOrb3 22s ease-in-out infinite;
+}
+
+@keyframes floatOrb1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(100px, 50px) scale(1.1); }
+  66% { transform: translate(50px, 100px) scale(0.9); }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-80px, -60px) scale(1.2); }
+  66% { transform: translate(-40px, 40px) scale(0.8); }
+}
+
+@keyframes floatOrb3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -80px) scale(1.1); }
+  66% { transform: translate(-60px, -40px) scale(0.9); }
+}
+
+/* ==================== GLASS CARD HOVER EFFECTS ==================== */
+.glass-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+}
+
+/* ==================== PULSE GLOW FOR RECOMMENDATIONS ==================== */
+.pulse-glow {
+  animation: recommendationPulse 3s ease-in-out infinite;
+}
+
+@keyframes recommendationPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1), 0 0 40px rgba(184, 41, 247, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.2), 0 0 60px rgba(184, 41, 247, 0.1);
+    border-color: rgba(0, 240, 255, 0.2);
+  }
+}
+
+/* ==================== ANIMATED PROGRESS BAR ==================== */
+.progress-bar-animated {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progressShimmer 2s infinite;
+}
+
+@keyframes progressShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ==================== STAR RATING ANIMATIONS ==================== */
+.star-filled {
+  animation: starPop 0.3s ease-out;
+}
+
+@keyframes starPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ==================== TAB TRANSITIONS ==================== */
+.tab-active {
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00f0ff, #b829f7);
+  animation: tabGlow 2s ease-in-out infinite;
+}
+
+@keyframes tabGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ==================== LOADING SPINNER ==================== */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ==================== NOTIFICATION SLIDE IN ==================== */
+.notification-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ==================== GRID PATTERN ==================== */
+.grid-pattern {
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+/* ==================== SCORE CIRCLE ==================== */
+.score-circle-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-circle-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--neon-cyan) var(--score-angle),
+    rgba(255, 255, 255, 0.1) var(--score-angle)
+  );
+  mask: radial-gradient(circle, transparent 55%, black 56%);
+  -webkit-mask: radial-gradient(circle, transparent 55%, black 56%);
+}
+
+/* ==================== BUTTON SHINE EFFECT ==================== */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform: rotate(30deg);
+  animation: btnShine 3s infinite;
+}
+
+@keyframes btnShine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* ==================== INPUT FOCUS GLOW ==================== */
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2), 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+/* ==================== TABLE ROW HOVER ==================== */
+table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+table tbody tr:hover {
+  background-color: rgba(0, 240, 255, 0.05);
+}
+
+/* ==================== SCROLLBAR STYLING ==================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 15, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.5), rgba(184, 41, 247, 0.5));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.8), rgba(184, 41, 247, 0.8));
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (max-width: 768px) {
+  .cursor-dot,
+  .cursor-glow {
+    display: none;
+  }
+
+  .floating-orb {
+    opacity: 0.2;
+  }
+
+  .orb-1, .orb-2, .orb-3 {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .cursor-glow {
+    display: none;
+  }
+
+  .floating-orb {
+    animation: none;
+  }
+}
+
+/* ==================== CHART TOOLTIP CUSTOMIZATION ==================== */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+.recharts-default-tooltip {
+  background-color: #1a1a25 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ==================== NEON BORDER ANIMATION ==================== */
+.neon-border-animated {
+  position: relative;
+}
+
+.neon-border-animated::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00f0ff, #b829f7, #ff2d95, #00f0ff);
+  background-size: 300% 300%;
+  animation: neonBorderMove 3s linear infinite;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+@keyframes neonBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* ==================== CARD RANK BADGE ==================== */
+.rank-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(184, 41, 247, 0.2));
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 12px;
+}
+
+.rank-badge::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #00f0ff, #b829f7);
+  opacity: 0.3;
+  z-index: -1;
+  filter: blur(8px);
+}

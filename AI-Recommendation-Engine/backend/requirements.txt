@@ -1,0 +1,17 @@
+# AI Recommendation Engine - Backend Requirements
+# Install with: pip install -r requirements.txt
+
+# Web Framework
+Flask==3.0.3
+Flask-CORS==4.0.1
+
+# Data Science & ML
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+
+# Environment Variables
+python-dotenv==1.0.1
+
+# Production WSGI Server
+gunicorn==23.0.0
